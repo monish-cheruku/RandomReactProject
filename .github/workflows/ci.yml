@@ -10,7 +10,7 @@ jobs:
     strategy:
         matrix:
           node-version: [14.x]
-        max-parallel: 1
+        max-parallel: 0
     steps:
       # - uses: actions/checkout@v1
       #   with:
