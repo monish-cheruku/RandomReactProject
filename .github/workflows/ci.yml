@@ -49,4 +49,4 @@ jobs:
       - name: test artifact download
         run: ls -R
       - name: copy job
-        run: xcopy build C:\Users\scheruku\Documents\artifact\* /E /H /Y
+        run: xcopy build C:\Users\scheruku\Documents\artifact\ /E /H /Y
