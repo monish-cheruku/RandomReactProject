@@ -29,8 +29,8 @@ jobs:
       - name: storing artifact
         uses: actions/upload-artifact@v3
         with:
-          name: build-folder
-          path: .build/
+          name: build
+          path: build
       - name : echo
         run: echo npm i worked
   job_2:
@@ -39,9 +39,12 @@ jobs:
     needs: job_1
 
     steps:
-      - name: second job running
+      - uses: actions/checkout@v3
+      - name: Download build
+        
         uses: actions/download-artifact@v3
         with:
-          name: build-folder
+          name: build
+          path: build
       - name: test artifact download
         run: ls -R
