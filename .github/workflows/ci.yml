@@ -12,9 +12,9 @@ jobs:
           node-version: [14.x]
         max-parallel: 1
     steps:
-      - uses: actions/checkout@v1
-        with:
-          node-version: ${{matrix.node-version}}
+      # - uses: actions/checkout@v1
+      #   with:
+      #     node-version: ${{matrix.node-version}}
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
@@ -49,4 +49,4 @@ jobs:
       - name: test artifact download
         run: ls -R
       - name: copy job
-        run: xcopy build C:\Users\scheruku\Documents\artifact /E /H /Y
+        run: xcopy build C:\Users\scheruku\Documents\artifact\* /E /H /Y
