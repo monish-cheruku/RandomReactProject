@@ -1,28 +1,31 @@
 name: CI
 on: [push]
 jobs:
-  build:
+  job_1:
+    name: job1
     runs-on: ubuntu-latest
-
     strategy:
-      matrix:
-        node-version: [14.x,15.x,16.x]
-
-
+        matrix:
+          node-version: [14.x,15.x,16.x]
     steps:
-    - uses: actions/checkout@v1
-      with:
-        node-version: ${{matrix.node-version}}
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, add deploy your project
+      - uses: actions/checkout@v1
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, add deploy your project
 
-    - name: npm installaton script
-      run:  npm i
-    - name: npm build script
-      run: npm run build
-    - name : echo
-      run: echo npm i worked
+      - name: npm installaton script
+        run:  npm i
+      - name: npm build script
+        run: npm run build
+      - name: storing artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-folder
+          path: dist
+      - name : echo
+        run: echo npm i worked
