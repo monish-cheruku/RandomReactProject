@@ -36,7 +36,7 @@ jobs:
   job_2:
     name: job2
     runs-on: ubuntu-latest
-    needs: job1
+    needs: job_1
 
     steps:
       - name: second job running
