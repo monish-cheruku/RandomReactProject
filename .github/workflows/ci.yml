@@ -4,13 +4,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [14.x,15.x,16.x]
 
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        node-version: ${{matrix.node-version}}
     - name: Run a one-line script
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
         echo test, add deploy your project
+    - name: run
+      run:  npm i
+    - name : echo
+      run: echo npm i worked
