@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: build-folder
-          path: ./build/artifact/
+          path: ./build/
       - name : echo
         run: echo npm i worked
   job_2:
