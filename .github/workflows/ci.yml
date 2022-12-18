@@ -26,6 +26,16 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-folder
-          path: dist
+          path: ./build/*
       - name : echo
         run: echo npm i worked
+  job_2:
+    name: job2
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          node-version: 15.x
+      - name: second job running
+        run: echo second job successfully running created after job1
