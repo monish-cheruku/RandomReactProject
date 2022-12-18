@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: second job running
-        uses: actions/checkout@v1
+        uses: actions/download-artifact@v3
         with:
           name: build-folder
       - name: test artifact download
