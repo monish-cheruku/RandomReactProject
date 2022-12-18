@@ -6,9 +6,9 @@ jobs:
     name: job1
     
     runs-on: self-hosted
-    defaults:
-      run:
-        working-directory: ./react
+    # defaults:
+      # run:
+        # working-directory: ./react
     strategy:
         matrix:
           node-version: [14.x,15.x,16.x]
@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: build-folder
-          path: react/${{matrix.node-version}}/*
+          path: ./build/*
       - name : echo
         run: echo npm i worked
   job_2:
